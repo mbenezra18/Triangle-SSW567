@@ -5,6 +5,10 @@ The primary goal of this file is to demonstrate a simple unittest implementation
 
 @author: jrr
 @author: rk
+
+@author: Michayla Ben-Ezra
+Updated on September 9, 2018
+
 """
 
 import unittest
@@ -23,8 +27,36 @@ class TestTriangles(unittest.TestCase):
     def testRightTriangleB(self): 
         self.assertEqual(classifyTriangle(5,3,4),'Right','5,3,4 is a Right triangle')
         
-    def testEquilateralTriangles(self): 
+    def testEquilateralTrianglesA(self):
         self.assertEqual(classifyTriangle(1,1,1),'Equilateral','1,1,1 should be equilateral')
+
+    def testEquilateralTrianglesB(self):
+        self.assertEqual(classifyTriangle(15,15,15),'Equilateral','1,1,1 should be equilateral')
+
+    def testScaleneTrianglesA(self):
+        self.assertEqual(classifyTriangle(13,14,9),'Scalene','13,14,9 should be Scalene')
+
+    def testScaleneTrianglesB(self):
+        self.assertEqual(classifyTriangle(13,14,9),'Scalene','13,14,9 should be Scalene')
+
+    def testIsoscelesTrianglesA(self):
+        self.assertEqual(classifyTriangle(4,4,1), 'Isosceles', '4,4,1 should be Isosceles')
+
+    def testIsoscelesTrianglesB(self):
+        self.assertEqual(classifyTriangle(4, 4, 1), 'Isosceles', '4,4,1 should be Isosceles')
+
+    def testNotATriangleA(self):
+        self.assertEqual(classifyTriangle(1, 1, 199), 'NotATriangle', '1,1,199 should be NotATriangle')
+
+    def testNotATriangleB(self):
+        self.assertEqual(classifyTriangle(15, 8, 4), 'NotATriangle', '15,8,4 should be NotATriangle')
+
+    def testInvalidInputA(self):
+        self.assertEqual(classifyTriangle(15, 2000, -1000), 'InvalidInput', '15,2000,-1000 should be InvalidImput')
+
+    def testInvalidInputB(self):
+        self.assertEqual(classifyTriangle(1, 2, 'three'), 'InvalidInput', '1,2,three should be InvalidInput')
+
 
 if __name__ == '__main__':
     print('Running unit tests')
